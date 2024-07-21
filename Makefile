@@ -4,7 +4,7 @@
 
 # Compilador
       CC = gcc -Wall
-      CFLAGS = -O0 -I${LIKWID_INCLUDE} -DLIKWID_PERFMON
+      CFLAGS = -O3 -march=native -mavx2 -fopt-info-vec -I${LIKWID_INCLUDE} -DLIKWID_PERFMON
       LFLAGS = -lm -L${LIKWID_LIB} -llikwid
 
 # Lista de arquivos para distribuição
@@ -22,7 +22,7 @@ debug: CFLAGS += -g -D_DEBUG_
 debug: $(PROG)
 
 $(PROG): $(OBJS) 
-	$(CC) $(CFLAGS) -O3 -mavx2 -march=native -o $@ $^ $(LFLAGS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS)
 
 clean:
 	@echo "Limpando ...."
