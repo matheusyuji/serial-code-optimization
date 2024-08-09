@@ -1,4 +1,6 @@
 /* Constantes */
+#ifndef _MATRIZ_H_
+#define _MATRIZ_H_
 
 #define DBL_FIELD "%15.10lg"
 #define SEP_RES "\n\n\n"
@@ -8,6 +10,11 @@
 
 
 #define ABS(num)  ((num) < 0.0 ? -(num) : (num))
+
+#define BK 8
+#define UR 4
+
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /* Tipos para matrizes e vetores */
 
@@ -24,7 +31,11 @@ Vetor geraVetor (int n, int zerar);
 void liberaVetor (void *vet);
 
 void multMatVet (MatRow mat, Vetor v, int m, int n, Vetor res);
+void multMatVetOtimizado (MatRow mat, Vetor v, int m, int n, Vetor res);
 void multMatMat(MatRow A, MatRow B, int n, MatRow C);
+void multMatMatOtimizado (MatRow A, MatRow B, int n, MatRow C);
 
 void prnMat (MatRow mat, int m, int n);
 void prnVetor (Vetor vet, int n);
+
+#endif
