@@ -3,15 +3,15 @@
 
 # Descomente as 2 linhas abaixo se quiser que Python procure por modulos
 # em outros diretórios que não os do sistema e o diretório corrente.
-## import sys, os
-## sys.path.extend([ '~/lib/python', '.', '..' ])
+import sys, os
+sys.path.extend([ '~/lib/python', '.', '..' ])
 # Ou em seu ambiente shell, crie e exporte a variavel de ambiente PYTHONPATH.
 # Coloque a linha abaixo em seu arquivo '~/.bashrc' ou '~/.profile:
 ## export PYTHONPATH="${HOME}/lib/python:.:.."
 #
 
-# import numpy as np
-# import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
 
 from string import *
 from math import *

@@ -6,7 +6,7 @@
 
 #include "matriz.h"
 #include "utils.h"
-//#include "likwid.h"
+#include "likwid.h"
 
 /**
  * Exibe mensagem de erro indicando forma de uso do programa e termina
@@ -77,37 +77,36 @@ int main (int argc, char *argv[])
     printf ("===============================================================================\n\n");
 #endif /* _DEBUG_ */
 
-  //LIKWID_MARKER_INIT;
+  LIKWID_MARKER_INIT;
 
-  //LIKWID_MARKER_START("MatVet");
+  LIKWID_MARKER_START("MatVet");
   timeMatVet = timestamp();
   multMatVet (mRow_1, vet, n, n, res);
   timeMatVet = timestamp() - timeMatVet;
-  //LIKWID_MARKER_STOP("MatVet");
+  LIKWID_MARKER_STOP("MatVet");
 
-  //LIKWID_MARKER_START("MatVetOtimizado");
+  LIKWID_MARKER_START("MatVetOtimizado");
   timeMatVetOtimizado = timestamp();
   multMatVetOtimizado (mRow_1, vet, n, n, resOtimizado);
   timeMatVetOtimizado = timestamp() - timeMatVetOtimizado;
-  //LIKWID_MARKER_STOP("MatVetOtimizado");
+  LIKWID_MARKER_STOP("MatVetOtimizado");
     
-  //LIKWID_MARKER_START("MatMat");
+  LIKWID_MARKER_START("MatMat");
   timeMatMat = timestamp();
   multMatMat (mRow_1, mRow_2, n, resMat);
   timeMatMat = timestamp() - timeMatMat;
-  //LIKWID_MARKER_STOP("MatMat");
+  LIKWID_MARKER_STOP("MatMat");
 
-  //LIKWID_MARKER_START("MatMatOtimizado");
+  LIKWID_MARKER_START("MatMatOtimizado");
   timeMatMatOtimizado = timestamp();
   multMatMatOtimizado (mRow_1, mRow_2, n, resMatOtimizado);
   timeMatMatOtimizado = timestamp() - timeMatMatOtimizado;
-  //LIKWID_MARKER_STOP("MatMatOtimizado");
+  LIKWID_MARKER_STOP("MatMatOtimizado");
 
   printf ("Tempo do MatVet %.8lf ms\n", timeMatVet);
   printf ("Tempo do MatVetOtimizado %.8lf ms\n", timeMatVetOtimizado);
   printf ("Tempo do MatMat %.8lf ms\n", timeMatMat);
   printf ("Tempo do MatMatOtimizado %.8lf ms\n", timeMatMatOtimizado);
-
 
 #ifdef _DEBUG_
     //prnVetor (res, n);
@@ -124,7 +123,7 @@ int main (int argc, char *argv[])
   liberaVetor ((void*) res);
   liberaVetor ((void*) resOtimizado);
 
-  //LIKWID_MARKER_CLOSE;
+  LIKWID_MARKER_CLOSE;
 
   return 0;
 }
